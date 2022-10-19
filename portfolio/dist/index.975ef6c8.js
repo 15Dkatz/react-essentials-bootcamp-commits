@@ -28247,52 +28247,97 @@ parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
+const Joke = ({ joke: { setup , punchline  }  })=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+        style: {
+            margin: 20
+        },
+        children: [
+            setup,
+            " ",
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("em", {
+                children: punchline
+            }, void 0, false, {
+                fileName: "src/components/Jokes.js",
+                lineNumber: 4,
+                columnNumber: 37
+            }, undefined)
+        ]
+    }, void 0, true, {
+        fileName: "src/components/Jokes.js",
+        lineNumber: 4,
+        columnNumber: 3
+    }, undefined);
+_c = Joke;
 class Jokes extends (0, _react.Component) {
     state = {
-        joke: {}
+        joke: {},
+        jokes: []
     };
     componentDidMount() {
         fetch("https://official-joke-api.appspot.com/random_joke").then((response)=>response.json()).then((json)=>this.setState({
                 joke: json
             }));
     }
+    fetchJokes = ()=>{
+        fetch("https://official-joke-api.appspot.com/random_ten").then((response)=>response.json()).then((json)=>this.setState({
+                jokes: json
+            }));
+    };
     render() {
-        const { setup , punchline  } = this.state.joke;
         return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
                     children: "Highlighted Joke"
                 }, void 0, false, {
                     fileName: "src/components/Jokes.js",
-                    lineNumber: 17,
+                    lineNumber: 25,
                     columnNumber: 9
                 }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                    children: [
-                        setup,
-                        " ",
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("em", {
-                            children: punchline
-                        }, void 0, false, {
-                            fileName: "src/components/Jokes.js",
-                            lineNumber: 18,
-                            columnNumber: 20
-                        }, this)
-                    ]
-                }, void 0, true, {
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Joke, {
+                    joke: this.state.joke
+                }, void 0, false, {
                     fileName: "src/components/Jokes.js",
-                    lineNumber: 18,
+                    lineNumber: 26,
                     columnNumber: 9
-                }, this)
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
+                    fileName: "src/components/Jokes.js",
+                    lineNumber: 27,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                    children: "Want ten new jokes?"
+                }, void 0, false, {
+                    fileName: "src/components/Jokes.js",
+                    lineNumber: 28,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                    onClick: this.fetchJokes,
+                    children: "Click me!"
+                }, void 0, false, {
+                    fileName: "src/components/Jokes.js",
+                    lineNumber: 29,
+                    columnNumber: 9
+                }, this),
+                this.state.jokes.map((joke)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Joke, {
+                        joke: joke
+                    }, joke.id, false, {
+                        fileName: "src/components/Jokes.js",
+                        lineNumber: 30,
+                        columnNumber: 40
+                    }, this))
             ]
         }, void 0, true, {
             fileName: "src/components/Jokes.js",
-            lineNumber: 16,
+            lineNumber: 24,
             columnNumber: 7
         }, this);
     }
 }
 exports.default = Jokes;
+var _c;
+$RefreshReg$(_c, "Joke");
 
   $parcel$ReactRefreshHelpers$40f0.postlude(module);
 } finally {
