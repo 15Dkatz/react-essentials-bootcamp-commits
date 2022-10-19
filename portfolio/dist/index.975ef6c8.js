@@ -28276,12 +28276,12 @@ class Jokes extends (0, _react.Component) {
     componentDidMount() {
         fetch("https://official-joke-api.appspot.com/random_joke").then((response)=>response.json()).then((json)=>this.setState({
                 joke: json
-            }));
+            })).catch((error)=>alert(error.message));
     }
     fetchJokes = ()=>{
         fetch("https://official-joke-api.appspot.com/random_ten").then((response)=>response.json()).then((json)=>this.setState({
                 jokes: json
-            }));
+            })).catch((error)=>alert(error.message));
     };
     render() {
         return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -28290,26 +28290,26 @@ class Jokes extends (0, _react.Component) {
                     children: "Highlighted Joke"
                 }, void 0, false, {
                     fileName: "src/components/Jokes.js",
-                    lineNumber: 25,
+                    lineNumber: 27,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Joke, {
                     joke: this.state.joke
                 }, void 0, false, {
                     fileName: "src/components/Jokes.js",
-                    lineNumber: 26,
+                    lineNumber: 28,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
                     fileName: "src/components/Jokes.js",
-                    lineNumber: 27,
+                    lineNumber: 29,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
                     children: "Want ten new jokes?"
                 }, void 0, false, {
                     fileName: "src/components/Jokes.js",
-                    lineNumber: 28,
+                    lineNumber: 30,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -28317,20 +28317,20 @@ class Jokes extends (0, _react.Component) {
                     children: "Click me!"
                 }, void 0, false, {
                     fileName: "src/components/Jokes.js",
-                    lineNumber: 29,
+                    lineNumber: 31,
                     columnNumber: 9
                 }, this),
                 this.state.jokes.map((joke)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Joke, {
                         joke: joke
                     }, joke.id, false, {
                         fileName: "src/components/Jokes.js",
-                        lineNumber: 30,
+                        lineNumber: 32,
                         columnNumber: 40
                     }, this))
             ]
         }, void 0, true, {
             fileName: "src/components/Jokes.js",
-            lineNumber: 24,
+            lineNumber: 26,
             columnNumber: 7
         }, this);
     }
