@@ -28182,15 +28182,16 @@ class Title extends (0, _react.Component) {
         titleIndex: 0
     };
     componentDidMount() {
-        console.log("Title component has mounted");
         this.animateTitles();
+    }
+    componentWillUnmount() {
+        clearInterval(this.titleInterval);
     }
     animateTitles = ()=>{
         this.titleInterval = setInterval(()=>{
             const titleIndex = (this.state.titleIndex + 1) % TITLES.length;
             this.setState({
-                titleIndex,
-                fadeIn: true
+                titleIndex
             });
         }, 4000);
     };
@@ -28204,7 +28205,7 @@ class Title extends (0, _react.Component) {
             ]
         }, void 0, true, {
             fileName: "src/Title.js",
-            lineNumber: 33,
+            lineNumber: 35,
             columnNumber: 7
         }, this);
     }
