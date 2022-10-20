@@ -27097,6 +27097,9 @@ class App extends (0, _react.Component) {
         artist: null,
         tracks: []
     };
+    componentDidMount() {
+        this.searchArtist("metallica");
+    }
     searchArtist = (artistQuery)=>{
         fetch(`${API_ADDRESS}/artist/${artistQuery}`).then((response)=>response.json()).then((json)=>{
             if (json.artists.total > 0) {
@@ -27118,34 +27121,34 @@ class App extends (0, _react.Component) {
                     children: "Music Master"
                 }, void 0, false, {
                     fileName: "src/components/App.js",
-                    lineNumber: 34,
+                    lineNumber: 38,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _searchDefault.default), {
                     searchArtist: this.searchArtist
                 }, void 0, false, {
                     fileName: "src/components/App.js",
-                    lineNumber: 35,
+                    lineNumber: 39,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _artistDefault.default), {
                     artist: this.state.artist
                 }, void 0, false, {
                     fileName: "src/components/App.js",
-                    lineNumber: 36,
+                    lineNumber: 40,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _tracksDefault.default), {
                     tracks: this.state.tracks
                 }, void 0, false, {
                     fileName: "src/components/App.js",
-                    lineNumber: 37,
+                    lineNumber: 41,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "src/components/App.js",
-            lineNumber: 33,
+            lineNumber: 37,
             columnNumber: 7
         }, this);
     }
@@ -27420,6 +27423,29 @@ class Tracks extends (0, _react.Component) {
                 }
             }
         };
+    trackIcon = (track)=>{
+        if (!track.preview_url) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+            children: "N/A"
+        }, void 0, false, {
+            fileName: "src/components/Tracks.js",
+            lineNumber: 26,
+            columnNumber: 14
+        }, this);
+        if (this.state.playing && this.state.playingPreviewUrl === track.preview_url) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+            children: "| |"
+        }, void 0, false, {
+            fileName: "src/components/Tracks.js",
+            lineNumber: 33,
+            columnNumber: 14
+        }, this);
+        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+            children: "▶"
+        }, void 0, false, {
+            fileName: "src/components/Tracks.js",
+            lineNumber: 36,
+            columnNumber: 12
+        }, this);
+    };
     render() {
         const { tracks  } = this.props;
         return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27427,32 +27453,43 @@ class Tracks extends (0, _react.Component) {
                 const { id , name , album , preview_url  } = track;
                 return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                     onClick: this.playAudio(preview_url),
+                    className: "track",
                     children: [
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                             src: album.images[0].url,
-                            alt: "track-image"
+                            alt: "track-image",
+                            className: "track-image"
                         }, void 0, false, {
                             fileName: "src/components/Tracks.js",
-                            lineNumber: 35,
+                            lineNumber: 54,
                             columnNumber: 17
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                            className: "track-text",
                             children: name
                         }, void 0, false, {
                             fileName: "src/components/Tracks.js",
-                            lineNumber: 36,
+                            lineNumber: 59,
+                            columnNumber: 17
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                            className: "track-icon",
+                            children: this.trackIcon(track)
+                        }, void 0, false, {
+                            fileName: "src/components/Tracks.js",
+                            lineNumber: 60,
                             columnNumber: 17
                         }, this)
                     ]
                 }, id, true, {
                     fileName: "src/components/Tracks.js",
-                    lineNumber: 34,
+                    lineNumber: 49,
                     columnNumber: 15
                 }, this);
             })
         }, void 0, false, {
             fileName: "src/components/Tracks.js",
-            lineNumber: 28,
+            lineNumber: 43,
             columnNumber: 7
         }, this);
     }
