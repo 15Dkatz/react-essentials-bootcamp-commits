@@ -58,4 +58,62 @@ h1, h2, h3, h4, h5 {
   }
 }
 
+@font-face {
+  font-family: RobotoCondensed;
+  src: url("roboto-condensed.light.2add8c9e.ttf");
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: EconomicaBold;
+  src: url("economica-bold.41f3f70d.ttf");
+}
+
+body {
+  text-align: center;
+  padding: 2.5%;
+  font-family: RobotoCondensed;
+  font-size: 20px;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: EconomicaBold;
+}
+
+.track {
+  width: 250px;
+  height: 250px;
+  cursor: pointer;
+  margin: 20px;
+  display: inline-block;
+  position: relative;
+}
+
+.track-image {
+  width: 250px;
+  height: 250px;
+}
+
+.track-text {
+  width: 250px;
+  color: #fff;
+  background-color: #000;
+  padding: 5px;
+  position: absolute;
+  bottom: 0;
+}
+
+.track-icon {
+  color: #fff;
+  width: 50px;
+  height: 50px;
+  opacity: .8;
+  background-color: #000;
+  border-radius: 25px;
+  padding: 10px;
+  position: absolute;
+  bottom: 100px;
+  left: 100px;
+}
+
 /*# sourceMappingURL=index.61d3354a.css.map */
