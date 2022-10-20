@@ -27085,6 +27085,8 @@ parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
+var _search = require("./Search");
+var _searchDefault = parcelHelpers.interopDefault(_search);
 var _artist = require("./Artist");
 var _artistDefault = parcelHelpers.interopDefault(_artist);
 var _tracks = require("./Tracks");
@@ -27092,21 +27094,11 @@ var _tracksDefault = parcelHelpers.interopDefault(_tracks);
 const API_ADDRESS = "https://spotify-api-wrapper.appspot.com";
 class App extends (0, _react.Component) {
     state = {
-        artistQuery: "",
         artist: null,
         tracks: []
     };
-    updateArtistQuery = (event)=>{
-        console.log("event.target.value", event.target.value);
-        this.setState({
-            artistQuery: event.target.value
-        });
-    };
-    handleKeyPress = (event)=>{
-        if (event.key === "Enter") this.searchArtist();
-    };
-    searchArtist = ()=>{
-        fetch(`${API_ADDRESS}/artist/${this.state.artistQuery}`).then((response)=>response.json()).then((json)=>{
+    searchArtist = (artistQuery)=>{
+        fetch(`${API_ADDRESS}/artist/${artistQuery}`).then((response)=>response.json()).then((json)=>{
             if (json.artists.total > 0) {
                 const artist = json.artists.items[0];
                 this.setState({
@@ -27126,44 +27118,34 @@ class App extends (0, _react.Component) {
                     children: "Music Master"
                 }, void 0, false, {
                     fileName: "src/components/App.js",
-                    lineNumber: 44,
+                    lineNumber: 34,
                     columnNumber: 9
                 }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                    onChange: this.updateArtistQuery,
-                    onKeyPress: this.handleKeyPress,
-                    placeholder: "Search for an artist"
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _searchDefault.default), {
+                    searchArtist: this.searchArtist
                 }, void 0, false, {
                     fileName: "src/components/App.js",
-                    lineNumber: 45,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                    onClick: this.searchArtist,
-                    children: "Search"
-                }, void 0, false, {
-                    fileName: "src/components/App.js",
-                    lineNumber: 50,
+                    lineNumber: 35,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _artistDefault.default), {
                     artist: this.state.artist
                 }, void 0, false, {
                     fileName: "src/components/App.js",
-                    lineNumber: 51,
+                    lineNumber: 36,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _tracksDefault.default), {
                     tracks: this.state.tracks
                 }, void 0, false, {
                     fileName: "src/components/App.js",
-                    lineNumber: 52,
+                    lineNumber: 37,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "src/components/App.js",
-            lineNumber: 43,
+            lineNumber: 33,
             columnNumber: 7
         }, this);
     }
@@ -27175,7 +27157,7 @@ exports.default = App;
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./Artist":"2Dz6G","./Tracks":"h8ijL"}],"gkKU3":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./Artist":"2Dz6G","./Tracks":"h8ijL","./Search":"jqPPz"}],"gkKU3":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -27478,6 +27460,69 @@ class Tracks extends (0, _react.Component) {
 exports.default = Tracks;
 
   $parcel$ReactRefreshHelpers$5c92.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"jqPPz":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$8a55 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$8a55.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+class Search extends (0, _react.Component) {
+    state = {
+        artistQuery: ""
+    };
+    updateArtistQuery = (event)=>{
+        console.log("event.target.value", event.target.value);
+        this.setState({
+            artistQuery: event.target.value
+        });
+    };
+    handleKeyPress = (event)=>{
+        if (event.key === "Enter") this.searchArtist();
+    };
+    searchArtist = ()=>{
+        this.props.searchArtist(this.state.artistQuery);
+    };
+    render() {
+        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                    onChange: this.updateArtistQuery,
+                    onKeyPress: this.handleKeyPress,
+                    placeholder: "Search for an artist"
+                }, void 0, false, {
+                    fileName: "src/components/Search.js",
+                    lineNumber: 25,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                    onClick: this.searchArtist,
+                    children: "Search"
+                }, void 0, false, {
+                    fileName: "src/components/Search.js",
+                    lineNumber: 30,
+                    columnNumber: 9
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "src/components/Search.js",
+            lineNumber: 24,
+            columnNumber: 7
+        }, this);
+    }
+}
+exports.default = Search;
+
+  $parcel$ReactRefreshHelpers$8a55.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
