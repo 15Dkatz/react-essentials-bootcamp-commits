@@ -27085,6 +27085,8 @@ parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
+var _artist = require("./Artist");
+var _artistDefault = parcelHelpers.interopDefault(_artist);
 const API_ADDRESS = "https://spotify-api-wrapper.appspot.com";
 class App extends (0, _react.Component) {
     state = {
@@ -27122,7 +27124,7 @@ class App extends (0, _react.Component) {
                     children: "Music Master"
                 }, void 0, false, {
                     fileName: "src/components/App.js",
-                    lineNumber: 42,
+                    lineNumber: 43,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -27131,7 +27133,7 @@ class App extends (0, _react.Component) {
                     placeholder: "Search for an artist"
                 }, void 0, false, {
                     fileName: "src/components/App.js",
-                    lineNumber: 43,
+                    lineNumber: 44,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -27139,13 +27141,20 @@ class App extends (0, _react.Component) {
                     children: "Search"
                 }, void 0, false, {
                     fileName: "src/components/App.js",
-                    lineNumber: 48,
+                    lineNumber: 49,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _artistDefault.default), {
+                    artist: this.state.artist
+                }, void 0, false, {
+                    fileName: "src/components/App.js",
+                    lineNumber: 50,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "src/components/App.js",
-            lineNumber: 41,
+            lineNumber: 42,
             columnNumber: 7
         }, this);
     }
@@ -27157,7 +27166,7 @@ exports.default = App;
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"gkKU3":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./Artist":"2Dz6G"}],"gkKU3":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -27307,6 +27316,78 @@ function registerExportsForReactRefresh(module1) {
     }
 }
 
-},{"react-refresh/runtime":"786KC"}],"irmnC":[function() {},{}]},["1xC6H","ShInH","8lqZg"], "8lqZg", "parcelRequire7f5c")
+},{"react-refresh/runtime":"786KC"}],"2Dz6G":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$6250 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$6250.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+const Artist = ({ artist  })=>{
+    if (!artist) return null;
+    const { images , name , followers , genres  } = artist;
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                children: name
+            }, void 0, false, {
+                fileName: "src/components/Artist.js",
+                lineNumber: 10,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                children: [
+                    followers.total,
+                    " followers"
+                ]
+            }, void 0, true, {
+                fileName: "src/components/Artist.js",
+                lineNumber: 11,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                children: genres.join(",")
+            }, void 0, false, {
+                fileName: "src/components/Artist.js",
+                lineNumber: 12,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                src: images[0] && images[0].url,
+                alt: "artist-profile",
+                style: {
+                    width: 200,
+                    height: 200,
+                    borderRadius: 100,
+                    objectFit: "cover"
+                }
+            }, void 0, false, {
+                fileName: "src/components/Artist.js",
+                lineNumber: 13,
+                columnNumber: 7
+            }, undefined)
+        ]
+    }, void 0, true, {
+        fileName: "src/components/Artist.js",
+        lineNumber: 9,
+        columnNumber: 5
+    }, undefined);
+};
+_c = Artist;
+exports.default = Artist;
+var _c;
+$RefreshReg$(_c, "Artist");
+
+  $parcel$ReactRefreshHelpers$6250.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"irmnC":[function() {},{}]},["1xC6H","ShInH","8lqZg"], "8lqZg", "parcelRequire7f5c")
 
 //# sourceMappingURL=index.975ef6c8.js.map
