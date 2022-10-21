@@ -9,10 +9,13 @@ const DEFAULT_SETTINGS = {
   instructionsExpanded: false
 };
 
+const SET_GAME_STARTED = 'SET_GAME_STARTED';
+const SET_INSTRUCTIONS_EXPANDED = 'SET_INSTRUCTIONS_EXPANDED';
+
 const rootReducer = (state = DEFAULT_SETTINGS, action) => {
   console.log('state', state, 'action', action);
 
-  if (action.type === 'SET_GAME_STARTED') {
+  if (action.type === SET_GAME_STARTED) {
     return {
       gameStarted: action.gameStarted,
       instructionsExpanded: false
@@ -30,11 +33,38 @@ store.subscribe(() => {
   console.log('store.getState()', store.getState());
 });
 
-const action1 = { type: 'SET_GAME_STARTED', gameStarted: true };
-store.dispatch(action1);
+const startGame = () => {
+  return {
+    type: SET_GAME_STARTED,
+    gameStarted: true
+  };
+}
 
-store.dispatch({ type: 'foo' });
-store.dispatch({ type: 'bar' });
+const cancelGame = () => {
+  return {
+    type: SET_GAME_STARTED,
+    gameStarted: false
+  };
+}
+
+const expandInstructions = () => {
+  return {
+    type: SET_INSTRUCTIONS_EXPANDED,
+    instructionsExpanded: true
+  };
+}
+
+const collapseInstructions = () => {
+  return {
+    type: SET_INSTRUCTIONS_EXPANDED,
+    instructionsExpanded: false
+  };
+}
+
+store.dispatch(startGame());
+store.dispatch(cancelGame());
+store.dispatch(expandInstructions());
+store.dispatch(collapseInstructions());
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<App />);
