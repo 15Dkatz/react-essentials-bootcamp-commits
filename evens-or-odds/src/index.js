@@ -15,14 +15,20 @@ const SET_INSTRUCTIONS_EXPANDED = 'SET_INSTRUCTIONS_EXPANDED';
 const rootReducer = (state = DEFAULT_SETTINGS, action) => {
   console.log('state', state, 'action', action);
 
-  if (action.type === SET_GAME_STARTED) {
-    return {
-      gameStarted: action.gameStarted,
-      instructionsExpanded: false
-    }
+  switch(action.type) {
+    case SET_GAME_STARTED:
+      return {
+        ...state,
+        gameStarted: action.gameStarted
+      };
+    case SET_INSTRUCTIONS_EXPANDED:
+      return {
+        ...state,
+        instructionsExpanded: action.instructionsExpanded
+      };
+    default:
+      return state;
   }
-
-  return state;
 };
 
 const store = configureStore({
