@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { startGame, cancelGame } from '../actions/settings';
-import { fetchDeckResult } from '../actions/deck';
+import { fetchNewDeck } from '../actions/deck';
 import Instructions from './Instructions';
 
 class App extends Component {
   startGame = () => {
     this.props.startGame();
-
-    fetch('https://deck-of-cards-api-wrapper.appspot.com/deck/new/shuffle')
-      .then(response => response.json())
-      .then(json => this.props.fetchDeckResult(json));
+    this.props.fetchNewDeck();
   }
 
   render() {
@@ -47,14 +44,21 @@ const mapStateToProps = state => {
   return { gameStarted: state.gameStarted };
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    startGame: () => dispatch(startGame()),
-    cancelGame: () => dispatch(cancelGame()),
-    fetchDeckResult: deckJson => dispatch(fetchDeckResult(deckJson))
-  };
-}
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     startGame: () => dispatch(startGame()),
+//     cancelGame: () => dispatch(cancelGame()),
+//     fetchNewDeck: () => fetchNewDeck(dispatch)
+//   };
+// }
 
-const componentConnector = connect(mapStateToProps, mapDispatchToProps);
+const componentConnector = connect(
+  mapStateToProps,
+  {
+    startGame,
+    cancelGame,
+    fetchNewDeck
+  }
+);
 
 export default componentConnector(App);
