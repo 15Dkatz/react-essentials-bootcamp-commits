@@ -4,6 +4,7 @@ import { startGame, cancelGame } from '../actions/settings';
 import { fetchNewDeck } from '../actions/deck';
 import fetchStates from '../reducers/fetchStates';
 import Instructions from './Instructions';
+import DrawCard from './DrawCard';
 
 class App extends Component {
   startGame = () => {
@@ -31,6 +32,8 @@ class App extends Component {
             <div>
               <h3>The game is on!</h3>
               <br />
+              <DrawCard />
+              <hr />
               <button onClick={this.props.cancelGame}>Cancel Game</button>
             </div>
           ) : (
@@ -52,8 +55,8 @@ const mapStateToProps = state => {
   console.log('state', state);
 
   const {
-    settings: { fetchState, message },
-    deck: { gameStarted }
+    settings: { gameStarted },
+    deck: { fetchState, message }
   } = state;
 
   return { gameStarted, fetchState, message };
