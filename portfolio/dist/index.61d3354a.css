@@ -116,4 +116,26 @@ h1, h2, h3, h4, h5 {
   left: 100px;
 }
 
+@font-face {
+  font-family: RobotoCondensed;
+  src: url("roboto-condensed.light.a0cbe068.ttf");
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: EconomicaBold;
+  src: url("economica-bold.2ad241ec.ttf");
+}
+
+body {
+  text-align: center;
+  padding: 2.5%;
+  font-family: RobotoCondensed;
+  font-size: 20px;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: EconomicaBold;
+}
+
 /*# sourceMappingURL=index.61d3354a.css.map */
