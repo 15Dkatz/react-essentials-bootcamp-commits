@@ -1,10 +1,13 @@
 import { useState } from 'react';
+import Joke from './Joke';
 
 function App() {
   const [userQuery, setUserQuery] = useState('');
 
-  const searchQuery = () => {
-    window.open(`https://google.com/search?q=${userQuery}`, '_blank');
+  const updateUserQuery = event => {
+    console.log('userQuery', userQuery);
+
+    setUserQuery(event.target.value);
   }
 
   const handleKeyPress = event => {
@@ -13,10 +16,8 @@ function App() {
     }
   }
 
-  const updateUserQuery = event => {
-    console.log('userQuery', userQuery);
-
-    setUserQuery(event.target.value);
+  const searchQuery = () => {
+    window.open(`https://google.com/search?q=${userQuery}`, '_blank');
   }
 
   return ( 
@@ -30,6 +31,8 @@ function App() {
         />
         <button onClick={searchQuery}>Search</button>
       </div>
+      <hr />
+      <Joke />
     </div>
   );
 }
